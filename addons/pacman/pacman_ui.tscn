@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://8l317m41jpkk"]
+
+[ext_resource type="Script" path="res://addons/pacman/pacman_ui_ref_map.gd" id="1_k1t3u"]
+
+[node name="PacmanUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="PacmanUIRefMap" type="Control" parent="." node_paths=PackedStringArray("initialize_view", "initialize_button", "standard_view")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k1t3u")
+initialize_view = NodePath("../InitializationView")
+initialize_button = NodePath("../InitializationView/InitButtonMargin/InitializeButton")
+standard_view = NodePath("../StandardView")
+
+[node name="InitializationView" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 149.0
+grow_horizontal = 2
+
+[node name="InitMessageMargin" type="MarginContainer" parent="InitializationView"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="InitializeMessage" type="Label" parent="InitializationView/InitMessageMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Looks like you don't have an addon manifest yet"
+horizontal_alignment = 1
+
+[node name="InitButtonMargin" type="MarginContainer" parent="InitializationView"]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="InitializeButton" type="Button" parent="InitializationView/InitButtonMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Initialize Addon Manifest"
+
+[node name="StandardView" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="StandardView"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Title" type="Label" parent="StandardView/TitleMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Installed Plugins"
+horizontal_alignment = 1
+
+[node name="PluginListMargin" type="MarginContainer" parent="StandardView"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="PluginListLabel" type="Label" parent="StandardView/PluginListMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "TODO: list plugins from addon-manifest.json"
+horizontal_alignment = 1
