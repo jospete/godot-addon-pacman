@@ -11,14 +11,17 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 
-[node name="PacmanUIRefMap" type="Control" parent="." node_paths=PackedStringArray("initialize_view", "initialize_button", "standard_view")]
+[node name="PacmanUIRefMap" type="Control" parent="." node_paths=PackedStringArray("initialize_view", "standard_view", "addon_list_container", "initialize_button", "sync_button", "add_button")]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 5.0
+offset_bottom = 9.0
 script = ExtResource("1_k1t3u")
 initialize_view = NodePath("../InitializationView")
-initialize_button = NodePath("../InitializationView/InitButtonMargin/InitializeButton")
 standard_view = NodePath("../StandardView")
+addon_list_container = NodePath("")
+initialize_button = NodePath("../InitializationView/InitButtonMargin/InitializeButton")
+sync_button = NodePath("../StandardView/ToolbarBackground/ToolbarMargin/HBoxContainer/SyncButton")
+add_button = NodePath("../StandardView/ToolbarBackground/ToolbarMargin/HBoxContainer/AddButton")
 
 [node name="InitializationView" type="VBoxContainer" parent="."]
 visible = false
@@ -64,12 +67,95 @@ theme_override_font_sizes/font_size = 32
 text = "Installed Plugins"
 horizontal_alignment = 1
 
+[node name="ToolbarBackground" type="Panel" parent="StandardView"]
+custom_minimum_size = Vector2(550, 40)
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ToolbarMargin" type="MarginContainer" parent="StandardView/ToolbarBackground"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StandardView/ToolbarBackground/ToolbarMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="AddButton" type="Button" parent="StandardView/ToolbarBackground/ToolbarMargin/HBoxContainer"]
+layout_mode = 2
+text = "Add"
+
+[node name="SyncButton" type="Button" parent="StandardView/ToolbarBackground/ToolbarMargin/HBoxContainer"]
+layout_mode = 2
+text = "Sync"
+
 [node name="PluginListMargin" type="MarginContainer" parent="StandardView"]
 layout_mode = 2
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 20
 
-[node name="PluginListLabel" type="Label" parent="StandardView/PluginListMargin"]
+[node name="PluginListScrollContainer" type="ScrollContainer" parent="StandardView"]
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "TODO: list plugins from addon-manifest.json"
-horizontal_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StandardView/PluginListScrollContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel2" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel3" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel4" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel5" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel6" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel7" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel8" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel9" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel10" type="Panel" parent="StandardView/PluginListScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 46)
+layout_mode = 2
+size_flags_horizontal = 4
